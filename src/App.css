@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+html {
+box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::before,
+*::after {
+box-sizing: inherit;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root,
+body {
+min-height: 100vh;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+margin: 0;
 }
-
-.App-link {
-  color: #61dafb;
+#root,
+.todo-list-app {
+display: flex;
+flex-flow: column nowrap;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#root {
+align-items: center;
+width: 100%;
+}
+.todo-list-app {
+padding-top: 32px;
+width: 100%;
+max-width: 480px;
+}
+.todo-form input,
+.todo-item {
+border: 1px solid #ececec;
+}
+.todo-form input {
+padding: 0 14px;
+width: 100%;
+height: 48px;
+transition: .25s border ease-in-out;
+}
+.todo-form input:focus {
+outline: 0;
+border: 1px solid #3498db;
+}
+/* Todo list styles */
+.todo-list ul {
+padding: 0;
+margin: 0;
+}
+.todo-list li {
+list-style-type: none;
+}
+/* Todo item styles */
+.todo-item {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+padding: 8px;
+}
+.todo-form + .todo-list ul .todo-item {
+border-top: 0;
+}
+.todo-item-input-wrapper {
+flex-grow: 1;
+padding: 0 16px;
+}
+.todo-item input {
+width: 100%;
+border: 0;
+border-bottom: 1px solid transparent;
+transition: .25s border-bottom ease-in-out;
+}
+.todo-item input:focus {
+outline: 0;
+border-bottom: 1px solid #3498db;
+}
+.todo-item .todo-input-error {
+border-bottom: 1px solid #e74c3c;
+}
+.todo-item span {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 32px;
+height: 32px;
+border-radius: 50%;
+border: 1px solid #ececec;
+transition: .25s all ease-in-out;
+}
+.todo-item-unchecked:hover {
+background: hsla(168, 76%, 42%, .25);
+border: 1px solid hsl(168, 76%, 42%, .25);
+}
+.todo-item-checked {
+color: #fff;
+background: #1abc9c;
+border: 1px solid #1abc9c;
+}
+.item-remove {
+display: flex;
+padding-left: 8px;
+padding-right: 8px;
+font-size: 28px;
+cursor: pointer;
+line-height: 1;
+color: #ececec;
+transition: .25s color ease-in-out;
+}
+.item-remove:hover {
+color: #111;
 }
